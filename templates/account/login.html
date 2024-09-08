@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Sign In {% endblock %}
+
+{% block content %}
+<section class="banner-section">
+    <div class="container">
+       <div class="row">
+          <div class="col text-center">
+             <h3>Login</h3>
+             <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                   <li class="breadcrumb-item"><a href="{% url 'home:home' %}">Home</a></li>
+                   <li class="breadcrumb-item active" aria-current="page">Login</li>
+                </ol>
+             </nav>
+          </div>
+       </div>
+    </div>
+ </section>
+
+{% include 'includes/alerts.html' %}
+<section class="login-section">
+    <div class="container h-100">
+      <div class="row h-100 justify-content-center">
+        <div class="col-lg-6">
+          <div class="form-wrapper d-flex align-items-center h-100">
+            <form action="{% url 'account:login' %}" method="POST">
+              {% csrf_token %}
+              <div class="row g-4">
+                <div class="col-12">
+                  <h4>Login here</h4>
+                </div>
+                <div class="input-box col-12">
+                  <input type="text" name="username" class="form-control" placeholder="Username">
+                </div>
+                <div class="input-box col-12">
+                  <input type="password" name="password" placeholder="Password" class="form-control">
+                </div>
+                <input type="hidden" name="timezone" class="timeZone" value="Asia/Dhaka">
+                <div class="col-12">
+                  <div class="links">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="remember" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault"> Remember me </label>
+                    </div>
+                    <a href="{% url 'account:forget_password' %}">Forgot password?</a>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn-custom w-100">sign in</button>
+              <div class="bottom"> Don't have an account? <a href="{% url 'account:register' %}">Create account</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} About {% endblock %}
+
+{% block content %}
+<!-- ABOUT-US -->
+<section class="about-section">
+    <div class="container">
+       <div class="row align-items-center">
+          <div class="col-lg-6">
+             <div class="img-box" data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
+                <img src="{% static 'assets/uploads/content/63c3966f28dbc1673762415.png' %}" class="img-fluid" alt="ABOUT US">
+             </div>
+          </div>
+          <div class="col-lg-6">
+             <div class="text-box" data-aos="fade-left" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
+                <div class="header-text mb-5">
+                   <h5>ABOUT US</h5>
+                   <h2>We Use Digital Technology To Improve The Physical World</h2>
+                </div>
+                <p></p><p><span>A cryptocurrency, crypto-currency, or crypto is a collection of binary data which is designed to work as a medium of exchange. Individual coin ownership records are stored in a ledger, which is a computerized database using strong cryptography to secure transaction records, to control the creation of additional coins, and to verify the transfer of coin ownership. Try to save</span><br></p><p></p>
+
+                <a href="https://bugfinder.net/" class="btn-custom mt-4">Know More</a>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+<!-- /ABOUT-US -->
+<section class="feature-section">
+   <div class="container">
+       <div class="row">
+           <div class="col-12">
+               <div class="header-text text-center">
+                   <h5>FEATUERS</h5>
+                   <h2>Our Featuers</h2>
+               </div>
+           </div>
+       </div>
+       <div class="row g-4">
+
+           {% for feature in feature %}
+           <div class="col-md-6 col-lg-4">
+               <div class="feature-box" data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
+                   <div class="icon-box">
+                       {% if feature.icon %}
+                       <img src="{{ feature.image.url }}" alt="feature img">
+                       {% else %}
+                       <img src="{% static 'assets/uploads/content/63c3974ae308b1673762634.gif' %}" alt="feature img">
+                       {% endif %}
+                   </div>
+                   <h4>{{feature.title}}</h4>
+                   <p>{{feature.description}}</p>
+               </div>
+           </div>
+           {% endfor %}
+       
+       </div>
+   </div>
+</section>
+
+<style>
+   .testimonial-section .testimonial-wrapper {
+       border-radius: 20px;
+       background: url(assets/uploads/content/63c39f356e0031673764661.jpg);
+       background-size: cover;
+       background-position: center;
+   }
+</style>
+<!-- TESTIMONIAL -->
+<section class="testimonial-section">
+   <div class="container">
+     <div class="row">
+       <div class="col-12">
+         <div class="header-text text-center">
+           <h5>TESTIMONIALS</h5>
+           <h2>Trusted By Millions Of Users Worldwide</h2>
+         </div>
+       </div>
+     </div>
+     <div class="row">
+       <div class="col">
+         <div class="testimonial-wrapper">
+           <div class="testimonials owl-carousel">
+
+            {% for data in testmonial %}
+             <div class="review-box" data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
+               <p>{{data.comment}}</p>
+               <div class="top">
+                 <img src="{{ data.icon.url }}" alt="testimonial img">
+                 <div>
+                   <h4>{{data.name}}</h4>
+                   <span class="title">{{data.designation}}</span>
+                 </div>
+               </div>
+               <div class="quote">
+                 <i class="fal fa-quote-left"></i>
+               </div>
+             </div>
+            {% endfor %}
+            
+             
+        
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+ <!-- /TESTIMONIAL -->
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Plan {% endblock %}
+
+{% block content %}
+<section class="pricing-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="header-text text-center">
+            <h5>OUR PRICING</h5>
+            <h2>Fair Pricng For You</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4 g-lg-5">
+        {% for plan in plan %}
+        <div class="col-lg-4 col-md-6">
+          <div class="pricing-box" data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
+            <h4>{{plan.title}}</h4>
+            <h1>{{plan.price}}</h1>
+            <p>{{plan.description}}</p>
+            <ul>
+              <li>
+                <i class="fal fa-check-circle text-success"></i>Period : {{plan.period}} Days
+              </li>
+              <li>
+                <i class="fal fa-check-circle text-success"></i>Daily Ad Limit : {{plan.ad_limit}} PTC
+              </li>
+              <li>
+                <i class="fal fa-{% if plan.reffer_bonus == 'N/A' %}times{% else %}check{% endif %}-circle text-{% if plan.reffer_bonus == 'N/A' %}danger{% else %}success{% endif %}"></i> Referral Bonus : Up to {{plan.reffer_bonus}} level
+              </li>
+            </ul>
+            <button class="btn-custom w-100 purchaseNow" data-bs-toggle="modal" data-bs-target="#planModal" data-price="00" data-resource="{&quot;id&quot;:2,&quot;plan_id&quot;:2,&quot;language_id&quot;:1,&quot;name&quot;:&quot;Free&quot;,&quot;tag&quot;:&quot;Free&quot;,&quot;short_title&quot;:&quot;The perfect way to get started and get used to our tools&quot;,&quot;created_at&quot;:&quot;2023-01-17T07:20:36.000000Z&quot;,&quot;updated_at&quot;:&quot;2023-01-18T03:44:57.000000Z&quot;}"> Purchase Plan </button>
+            {% if plan.tag %}
+            <span class="feature">{{plan.tag}}</span>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+      
+   
+      </div>
+    </div>
+  </section>
+  <!--Plan Modal -->
+  <div id="planModal" class="modal fade modal-with-form" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <!-- Modal content-->
+      <div class="modal-content form-block">
+        <div class="modal-header">
+          <h4 class="modal-title">Purchase Plan</h4>
+          <button type="button" class="close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <i class="fal fa-times"></i>
+          </button>
+        </div>
+        <form class="login-form" id="invest-form" action="https://no31VC7Jjjy1.net/user/purchase/plan" method="post">
+          <input type="hidden" name="_token" value="b8DYK1jwpzwm43U66ywxRoIYzKAVFh1szEwuLKzV">
+          <div class="modal-body">
+            <div class="form-group">
+              <h5 class="text-center py-2">Please at first login to your account to purchase plan.</h5>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-custom close-btn" data-bs-dismiss="modal">Close</button>
+            <a href="https://no31VC7Jjjy1.net/login" class="btn-custom">Login</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<!-- /ABOUT-US -->
+{% endblock %}

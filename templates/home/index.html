@@ -1,0 +1,250 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+
+<section class="home-section">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-6">
+                <div class="text-box">
+                    <h3>Introducing Onshape Simulation</h3>
+                    <h1>Enlarge Your Network And Get More Commissions</h1>
+                    <p><span>New cloud-native simulation technology delivers fast, easy, and accurate mechanical guidance to designers.</span></p>
+                    <a href="https://codecanyon.net/user/bug-finder/portfolio" class="btn-custom mt-4" target="_blank">
+                        Learn More                        </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="img-box">
+                    <img src="{% static 'assets/uploads/content/63c3961d658811673762333.png' %}" class="img-fluid" alt="hero banner">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ABOUT-US -->
+<section class="about-section">
+    <div class="container">
+       <div class="row align-items-center">
+          <div class="col-lg-6">
+             <div class="img-box" data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
+                <img src="{% static 'assets/uploads/content/63c3966f28dbc1673762415.png' %}" class="img-fluid" alt="ABOUT US">
+             </div>
+          </div>
+          <div class="col-lg-6">
+             <div class="text-box" data-aos="fade-left" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
+                <div class="header-text mb-5">
+                   <h5>ABOUT US</h5>
+                   <h2>We Use Digital Technology To Improve The Physical World</h2>
+                </div>
+                <p></p><p><span>A cryptocurrency, crypto-currency, or crypto is a collection of binary data which is designed to work as a medium of exchange. Individual coin ownership records are stored in a ledger, which is a computerized database using strong cryptography to secure transaction records, to control the creation of additional coins, and to verify the transfer of coin ownership. Try to save</span><br></p><p></p>
+
+                <a href="https://bugfinder.net/" class="btn-custom mt-4">Know More</a>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+<!-- /ABOUT-US -->
+
+<!-- Plan -->>
+<section class="pricing-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="header-text text-center">
+            <h5>OUR PRICING</h5>
+            <h2>Fair Pricng For You</h2>
+          </div>
+        </div>
+      </div>
+
+        <div class="row g-4 g-lg-5">
+        {% for plan in plan %}
+        <div class="col-lg-4 col-md-6">
+          <div class="pricing-box" data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
+            <h4>{{plan.title}}</h4>
+            <h1>{{plan.price}}</h1>
+            <p>{{plan.description}}</p>
+            <ul>
+              <li>
+                <i class="fal fa-check-circle text-success"></i>Period : {{plan.period}} Days
+              </li>
+              <li>
+                <i class="fal fa-check-circle text-success"></i>Daily Ad Limit : {{plan.ad_limit}} PTC
+              </li>
+              <li>
+                <i class="fal fa-{% if plan.reffer_bonus == 'N/A' %}times{% else %}check{% endif %}-circle text-{% if plan.reffer_bonus == 'N/A' %}danger{% else %}success{% endif %}"></i> Referral Bonus : Up to {{plan.reffer_bonus}} level
+              </li>
+            </ul>
+            <button class="btn-custom w-100 purchaseNow" data-bs-toggle="modal" data-bs-target="#planModal" data-price="00" data-resource="{&quot;id&quot;:2,&quot;plan_id&quot;:2,&quot;language_id&quot;:1,&quot;name&quot;:&quot;Free&quot;,&quot;tag&quot;:&quot;Free&quot;,&quot;short_title&quot;:&quot;The perfect way to get started and get used to our tools&quot;,&quot;created_at&quot;:&quot;2023-01-17T07:20:36.000000Z&quot;,&quot;updated_at&quot;:&quot;2023-01-18T03:44:57.000000Z&quot;}"> Purchase Plan </button>
+            {% if plan.tag %}
+            <span class="feature">{{plan.tag}}</span>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Plan End -->>
+  <!--Plan Modal -->
+  <div id="planModal" class="modal fade modal-with-form" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <!-- Modal content-->
+      <div class="modal-content form-block">
+        <div class="modal-header">
+          <h4 class="modal-title">Purchase Plan</h4>
+          <button type="button" class="close-btn" data-bs-dismiss="modal" aria-label="Close">
+            <i class="fal fa-times"></i>
+          </button>
+        </div>
+        <form class="login-form" id="invest-form" action="https://no31VC7Jjjy1.net/user/purchase/plan" method="post">
+          <input type="hidden" name="_token" value="b8DYK1jwpzwm43U66ywxRoIYzKAVFh1szEwuLKzV">
+          <div class="modal-body">
+            <div class="form-group">
+              <h5 class="text-center py-2">Please at first login to your account to purchase plan.</h5>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-custom close-btn" data-bs-dismiss="modal">Close</button>
+            <a href="https://no31VC7Jjjy1.net/login" class="btn-custom">Login</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<section class="feature-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="header-text text-center">
+                            <h5>FEATUERS</h5>
+                            <h2>Our Featuers</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4">
+
+                    {% for feature in feature %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="feature-box" data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
+                            <div class="icon-box">
+                                {% if feature.icon %}
+                                <img src="{{ feature.image.url }}" alt="feature img">
+                                {% else %}
+                                <img src="{% static 'assets/uploads/content/63c3974ae308b1673762634.gif' %}" alt="feature img">
+                                {% endif %}
+                            </div>
+                            <h4>{{feature.title}}</h4>
+                            <p>{{feature.description}}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                
+                </div>
+            </div>
+        </section>
+            <!-- commission section of deposit -->
+<!-- end commission section of deposit -->
+<style>
+            .testimonial-section .testimonial-wrapper {
+                border-radius: 20px;
+                background: url(assets/uploads/content/63c39f356e0031673764661.jpg);
+                background-size: cover;
+                background-position: center;
+            }
+</style>
+<!-- TESTIMONIAL -->
+<section class="testimonial-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="header-text text-center">
+            <h5>TESTIMONIALS</h5>
+            <h2>Trusted By Millions Of Users Worldwide</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="testimonial-wrapper">
+            <div class="testimonials owl-carousel">
+ 
+             {% for data in testmonial %}
+              <div class="review-box" data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
+                <p>{{data.comment}}</p>
+                <div class="top">
+                  {% if data.icon %}
+                  <img src="{{ data.icon.url }}" alt="testimonial img">
+                  {% endif %}
+                  <div>
+                    <h4>{{data.name}}</h4>
+                    <span class="title">{{data.designation}}</span>
+                  </div>
+                </div>
+                <div class="quote">
+                  <i class="fal fa-quote-left"></i>
+                </div>
+              </div>
+             {% endfor %}
+             
+              
+         
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- /TESTIMONIAL -->
+        
+<!-- commission section of plan purchase -->
+<!-- end commission section of plan purchase -->
+<!-- BLOG -->
+<section class="blog-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="header-text text-center">
+            <h5>OUR BLOGS</h5>
+            <h2>Latest News &amp; Articles</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4 g-lg-5">
+        {% for data in latest_blogs %}
+        <div class="col-lg-4 col-md-6">
+          <div class="blog-box" data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="center-bottom">
+            <div class="img-box">
+              <img src="{{ data.icon.url }}" class="img-fluid" alt="blog thumb" style="width: 400px; height: 200px;">
+            </div>
+            <div class="text-box">
+              <div class="date-author">
+                <span>
+                  <i class="fal fa-calendar-alt"></i> {{data.created_at|date:"F d, Y"}} </span>
+                <span>
+                  <i class="fal fa-user-circle"></i> {{data.author}} </span>
+              </div>
+              <h5 class="title"> {{data.title}} <p></p>
+                <a href="{% url 'home:blog_details' data.id %}" class="btn-custom"> Read More </a>
+              </h5>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+<!-- /BLOG -->
+
+{% endblock %}

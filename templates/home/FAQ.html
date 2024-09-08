@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Blog {% endblock %}
+
+{% block content %}
+
+<section class="banner-section">
+    <div class="container">
+       <div class="row">
+          <div class="col text-center">
+             <h3>Frequently Asked Questions</h3>
+             <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                   <li class="breadcrumb-item"><a href="{% url 'home:home' %}">Home</a></li>
+                   <li class="breadcrumb-item active" aria-current="page">Frequently Asked Questions</li>
+                </ol>
+             </nav>
+          </div>
+       </div>
+    </div>
+ </section>
+
+ <section class="faq-section faq-page">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="accordion" id="accordionExample">
+            {% for faq in faq %}
+                <div class="accordion-item">
+                    <h5 class="accordion-header" id="heading{{ forloop.counter }}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
+                            {{ faq.question }}
+                        </button>
+                    </h5>
+                    <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            {{ faq.answer }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+          </div>        
+        </div>
+      </div>
+    </div>
+  </section>
+
+ {% endblock %}

@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Contact {% endblock %}
+
+{% block content %}
+<section class="banner-section">
+    <div class="container">
+       <div class="row">
+          <div class="col text-center">
+             <h3>Contact Us</h3>
+             <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                   <li class="breadcrumb-item"><a href="{% url 'home:home' %}">Home</a></li>
+                   <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                </ol>
+             </nav>
+          </div>
+       </div>
+    </div>
+ </section>
+
+
+ <div class="contact-section">
+    <div class="container">
+      <div class="info-wrapper">
+        <div class="row g-lg-5 g-4">
+          <div class="col-lg-4">
+            <div class="info-box">
+              <div class="icon">
+                <img src="{% static 'assets/themes/linen/images/icon/location.png' %}" alt="location img">
+              </div>
+              <div class="text">
+                <h4>Location</h4>
+                <p>{{company_profile.location}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="info-box">
+              <div class="icon">
+                <img src="{% static 'assets/themes/linen/images/icon/email.png' %}" alt="email img">
+              </div>
+              <div class="text">
+                <h4>Email</h4>
+                <p>{{company_profile.email}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="info-box">
+              <div class="icon">
+                <img src="{% static 'assets/themes/linen/images/icon/phone-call.png' %}" alt="phone img">
+              </div>
+              <div class="text">
+                <h4>Phone</h4>
+                <p>{{company_profile.phone}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="img-box">
+            <img src="https://ptc-pro.bugfinder.net/assets/uploads/content/63c3d37c8728f1673778044.png" alt="contact img" class="img-fluid">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <h3>Just Drop Us A Line.</h3>
+          <p class="mb-4">Give us a call or drop by anytime, we will be happy to answer your questions.</p>
+          <form action="https://ptc-pro.bugfinder.net/contact" method="POST">
+            <input type="hidden" name="_token" value="HN5JSh2s5acKDWdFxiFhqgrSdOzAJqEjaA4P4ZhN">
+            <div class="row g-3">
+              <div class="input-box col-md-6">
+                <input class="form-control" type="text" name="name" value="" placeholder="Full name">
+              </div>
+              <div class="input-box col-md-6">
+                <input class="form-control" type="email" name="email" value="" placeholder="Email address">
+              </div>
+              <div class="input-box col-12">
+                <input type="text" name="subject" value="" placeholder="Subject" class="form-control">
+              </div>
+              <div class="input-box col-12">
+                <textarea class="form-control" cols="30" rows="3" name="message" placeholder="Your message"></textarea>
+              </div>
+              <div class="input-box col-12">
+                <button type="submit" class="btn-custom">submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

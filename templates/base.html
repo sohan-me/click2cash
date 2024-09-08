@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html><!--[if lt IE 7 ]>
+<html class="ie ie6" lang="en"> <![endif]--><!--[if IE 7 ]>
+<html class="ie ie7" lang="en"> <![endif]--><!--[if IE 8 ]>
+<html class="ie ie8" lang="en"> <![endif]--><!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="PTCPro - Advanced Pay Per Click Platform">
+<meta name="keywords" content="Ad Earnings, Ad targeting, PPC Advertising, Online Advertising, Ad campaign, Ad Monetization, PPC Script, ads, rewards, earning, cpm, advertisement, pay per view, ppv">
+<link rel="shortcut icon" href="{% static 'assets/uploads/logo/favicon.png' %}" type="image/x-icon">
+
+<link rel="apple-touch-icon" href="{% static 'assets/uploads/logo/logo.png' %}">
+<title>PTC | {% block title %} {% endblock %}</title>
+<link rel="icon" type="image/png" sizes="16x16" href="assets/uploads/logo/favicon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="PTC | Home">
+
+<meta itemprop="name" content="PTC | Home">
+<meta itemprop="description" content="PTCPro - Advanced Pay Per Click Platform">
+<meta itemprop="image" content="https://no31VC7Jjjy1.net/assets/uploads/logo/UCRlTjwLuQKL.png600x315">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="PTCPro - Advanced Pay Per Click Platform">
+<meta property="og:description" content="PTCPro - Advanced Pay Per Click Platform">
+<meta property="og:image" content="assets/uploads/logo/meta.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:url" content="https://no31VC7Jjjy1.net">
+
+<meta name="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="{% static 'assets/themes/linen/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/themes/linen/css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/themes/linen/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/themes/linen/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/themes/linen/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/themes/linen/css/flag-icon.min.css' %}">
+    <script src="{% static 'assets/themes/linen/js/fontawesomepro.js' %}"></script>
+
+    
+    <link rel="stylesheet" href="{% static 'assets/themes/linen/css/style.css' %}">
+
+    
+</head>
+
+<body class="">
+
+{% include 'includes/navbar.html' %}
+
+{% block content %}
+
+
+  
+
+
+{% endblock %}
+
+<!-- footer section -->
+{% include 'includes/footer.html' %}
+<!-- cookie alert -->
+    <div id="cookieAlert" class="cookie-content">
+        <h4>
+            <i class="fad fa-cookie-bite"></i>
+            Cookies &amp; Privacy        </h4>
+        <p>
+            </p><p><span>This website uses cookies or similar techonoglies to enhance your browsing experience and provide personalized recommendations. By contrinuing to use our website, you agre...            <a href="https://no31VC7Jjjy1.net/cookie-consent" target="_blank">Privacy Policy</a>
+        </span></p>
+        <div class="cookie-btns">
+            <button class="btn-custom close-btn" id="cookie-deny">Decline</button>
+            <button class="btn-custom" id="cookie-accept">Accept</button>
+        </div>
+    </div>
+
+
+
+<script src="{% static 'assets/themes/linen/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/global/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/themes/linen/js/aos.js' %}"></script>
+<script src="{% static 'assets/themes/linen/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'assets/themes/linen/js/socialSharing.js' %}"></script>
+
+
+<script src="{% static 'assets/global/js/notiflix-aio-2.7.0.min.js' %}"></script>
+<script src="{% static 'assets/global/js/pusher.min.js' %}"></script>
+<script src="{% static 'assets/global/js/vue.min.js' %}"></script>
+<script src="{% static 'assets/global/js/axios.min.js' %}"></script>
+
+<!-- custom script -->
+<script src="{% static 'assets/themes/linen/js/script.js' %}"></script>
+
+
+
+    <script>
+        "use strict";
+
+        $(document).on('click', '.purchaseNow', function () {
+            let data = $(this).data('resource');
+            let price = $(this).data('price');
+
+            let symbol = "$";
+
+            $('.plan-price').text(`Price: ${symbol}${price}`);
+
+            $('.plan-name').text(`${data.name} Plan`);
+            $('.plan-id').val(data.plan_id);
+        });
+
+        $(document).on('click', '.disabled', function (){
+            Notiflix.Notify.Failure("You can use this plan only once. Please purchase new one.");
+        })
+
+    </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneCodeSelect = document.querySelector('select[name="phone_code"]');
+            const countryCodeInput = document.querySelector('input[name="country_code"]');
+            
+            // Update the hidden country_code input when the phone code changes
+            phoneCodeSelect.addEventListener('change', function() {
+                countryCodeInput.value = phoneCodeSelect.value;
+            });
+        
+            // Set the initial value
+            countryCodeInput.value = phoneCodeSelect.value;
+        });
+    </script>
+
+
+    
+
+
+<script>
+    var root = document.querySelector(':root');
+    root.style.setProperty('--primary', '#ff4b82');
+    root.style.setProperty('--secondary', '#ff8347');
+    root.style.setProperty('--tangerine', '#ff9a61');
+</script>
+
+
+
+</body></html>

@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Blog {% endblock %}
+
+{% block content %}
+
+<section class="banner-section">
+    <div class="container">
+       <div class="row">
+          <div class="col text-center">
+             <h3>Blog</h3>
+             <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                   <li class="breadcrumb-item"><a href="{% url 'home:home' %}">Home</a></li>
+                   <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                </ol>
+             </nav>
+          </div>
+       </div>
+    </div>
+ </section>
+
+
+ <section class="blog-page blog-details">
+    <div class="container">
+      <div class="row g-lg-5">
+        <div class="col-lg-8">
+         
+          {% for data in blogs %}
+          <div class="blog-box">
+            <div class="img-box">
+              <img src="{{ data.images.url }}" class="img-fluid" alt="blog img">
+            </div>
+            <div class="text-box">
+              <div class="date-author flex-wrap">
+                <div class="d-flex">
+                  <span>
+                    <i class="fal fa-clock" aria-hidden="true"></i> {{data.created_at|date:"F d, Y"}} </span>
+                  <span class="ms-3">
+                    <i class="fal fa-user-circle" aria-hidden="true"></i> {{data.author}} </span>
+                </div>
+                <span>
+                  <i class="fal fa-tags" aria-hidden="true"></i> {{data.tag}} </span>
+              </div>
+              <h5 class="title">{{data.title}}</h5>
+              <p></p>
+              <p>{{data.description|truncatewords:40}}</p>
+              <a href="{% url 'home:blog_details' data.id %}" class="btn-custom mt-3">Read More</a>
+            </div>
+          </div>
+          {% endfor %}
+          <div class="row py-5 mt-5">
+            <nav id="pagination">
+              <ul class="pagination wow fadeInUp justify-content-sm-center justify-content-start flex-wrap" data-wow-duration="1s" data-wow-delay="0.35s">
+                {% if blogs.has_previous %}
+                  <li class="page-item">
+                    <a href="?page={{ blogs.previous_page_number }}" class="page-link" aria-label="Previous">
+                      <span aria-hidden="true">«</span>
+                    </a>
+                  </li>
+                
+                {% endif %}
+                
+                {% for num in blogs.paginator.page_range %}
+                  {% if blogs.number == num %}
+                    <li class="page-item active">
+                      <a href="#" class="page-link">{{ num }} <span class="sr-only">(current)</span></a>
+                    </li>
+                  {% else %}
+                    <li class="page-item">
+                      <a href="?page={{ num }}" class="page-link">{{ num }}</a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+                
+                {% if blogs.has_next %}
+                  <li class="page-item">
+                    <a href="?page={{ blogs.next_page_number }}" class="page-link" aria-label="Next">
+                      <span aria-hidden="true">»</span>
+                    </a>
+                  </li>
+               
+                {% endif %}
+              </ul>
+            </nav>
+          </div>
+          
+          <!-- <div id="shareBlock">Share now</div> -->
+        </div>
+        <div class="col-lg-4">
+          <div class="side-bar">
+            <div class="side-box">
+              <form action="{% url 'home:search_blog' %}" method="GET">
+                <input type="hidden" name="_token" value="VD3fFSSPU1RIUedv0PZDy17ZF3NxvV9hpNZI6M2i">
+                <h4>Search here</h4>
+                <div class="input-group">
+                  <input type="text" class="form-control" name="search" id="search" placeholder="search here...">
+                  <button type="submit">
+                    <i class="fal fa-search" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="side-box">
+              <h4>Recent Posts</h4>
+
+              {% for data in latest_blogs %}
+              <div class="blog-box">
+                <div class="img-box">
+                  <a href="{% url 'home:blog_details' data.id %}">
+                    <img class="img-fluid" src="{{data.images.url}}" alt="related blog img">
+                  </a>
+                </div>
+                <div class="text-box">
+                  <span class="date">{{data.created_at|date:"F d, Y"}}</span>
+                  <a href="https://ptc-pro.bugfinder.net/blog-details/blockchain-com-closes-crypto-custody-for-russians-amid-eu-sanctions/7" class="title">{{data.title|truncatewords:6}} </a>
+                </div>
+              </div>
+              {% endfor %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+{% endblock %}
